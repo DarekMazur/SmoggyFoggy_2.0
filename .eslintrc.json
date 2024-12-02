@@ -12,12 +12,15 @@
     "prettier",
     "next/typescript",
     "eslint:recommended",
-    "next/core-web-vitals"
+    "next/core-web-vitals",
+    "plugin:storybook/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": 12,
     "sourceType": "module",
-    "ecmaFeatures": { "jsx": true }
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "plugins": ["prettier"],
   "rules": {
@@ -37,7 +40,12 @@
     "no-redeclare": "off",
     "react/jsx-indent": "off",
     "no-unused-vars": "off",
-    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "operator-linebreak": "off",
     "object-curly-newline": "off",
     "function-paren-newline": "off",
