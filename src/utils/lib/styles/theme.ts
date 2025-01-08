@@ -19,6 +19,12 @@ const theme = {
     header: cabin.style.fontFamily,
   },
 
+  fontSize: {
+    m: '1.6rem',
+    l: '2rem',
+    xl: '4rem',
+  },
+
   fontWeight: {
     regular: '400',
     semiBold: '700',
