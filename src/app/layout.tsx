@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { ReactNode } from 'react'
+import { ThemeProvider } from 'styled-components'
+import theme from '@/utils/lib/styles/theme'
 
 export const metadata: Metadata = {
   title: 'Smoggy Foggy',
@@ -12,9 +14,11 @@ const RootLayout = ({
   children: ReactNode
 }>) => {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+    <ThemeProvider theme={theme}>
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    </ThemeProvider>
   )
 }
 
