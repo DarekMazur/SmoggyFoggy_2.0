@@ -1,10 +1,6 @@
-import { createGlobalStyle, ExecutionContext } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
-interface ColorProps extends ExecutionContext {
-  $isDark?: boolean
-}
-
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle<{ $isDark?: boolean }>`
 	*, *::after, *::before {
     box-sizing: border-box;
   }
@@ -18,7 +14,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     line-height: 2;
-    color: ${({ theme, $isDark }: ColorProps) =>
+    font-size: ${({ theme }) => theme.fontSize.m};
+    color: ${({ theme, $isDark }) =>
       $isDark ? theme.colors.white : theme.colors.black};
   }
 
