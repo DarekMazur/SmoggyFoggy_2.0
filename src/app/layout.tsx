@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import { ReactNode } from 'react'
-import { ThemeProvider } from 'styled-components'
-import theme from '@/utils/lib/styles/theme'
-import GlobalStyle from '@/utils/lib/styles/GlobalStyle'
+import AppProviders from '@/utils/lib/providers/AppProviders'
 
 export const metadata: Metadata = {
   title: 'Smoggy Foggy',
@@ -15,12 +13,11 @@ const RootLayout = ({
   children: ReactNode
 }>) => {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
+    <AppProviders>
       <html lang="en">
         <body>{children}</body>
       </html>
-    </ThemeProvider>
+    </AppProviders>
   )
 }
 
