@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ReactNode } from 'react'
 import AppProviders from '@/utils/lib/providers/AppProviders'
+import Header from '@/components/Organisms/Header/Header'
 
 export const metadata: Metadata = {
   title: 'Smoggy Foggy',
@@ -15,7 +16,10 @@ const RootLayout = ({
   return (
     <AppProviders>
       <html lang="en">
-        <body>{children}</body>
+        <body>
+          <Header />
+          {children}
+        </body>
       </html>
     </AppProviders>
   )
