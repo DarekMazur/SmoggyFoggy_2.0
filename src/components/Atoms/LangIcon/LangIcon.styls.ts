@@ -1,11 +1,10 @@
 import styled from 'styled-components'
-import LangPicker from '@/assets/icons/langPicker.svg'
 
-const StyledLangIcon = styled.div`
+const StyledLangIcon = styled.div<{ $src: string }>`
   position: relative;
   margin: 0.5rem;
   border-radius: 50%;
-  background: url(${LangPicker.src}) no-repeat center/cover;
+  background: ${({ $src }) => `url(${$src}) no-repeat center / cover`};
   height: 3rem;
   width: 3rem;
   border: 0;
