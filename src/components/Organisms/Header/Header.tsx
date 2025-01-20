@@ -12,11 +12,15 @@ import en from '@/assets/icons/en.svg'
 import uk from '@/assets/icons/uk.svg'
 import LangPicker from '@/assets/icons/langPicker.svg'
 import styled from 'styled-components'
+import { useState } from 'react'
 
-const LanguageSwitcherList = styled.ul`
+const LanguageSwitcherList = styled.ul<{ $visible?: boolean }>`
   list-style: none;
   margin: 0;
   padding: 0;
+  opacity: ${({ $visible }) => ($visible ? '1' : '0')};
+  position: absolute;
+  transition: opacity 200ms ease;
 `
 
 const Header = () => {
@@ -25,6 +29,12 @@ const Header = () => {
     { icon: pl, name: 'polish' },
     { icon: uk, name: 'ukrainian' },
   ]
+
+  const [isVisible, setIsVisible] = useState(false)
+
+  const handleShowLanguageMenu = () => {
+    setIsVisible((prevState) => !prevState)
+  }
 
   return (
     <StyledHeader>
@@ -36,8 +46,13 @@ const Header = () => {
       >
         <Image src={TempSwitcher} alt="" />
         <div>
-          <StyledLangIcon as="button" type="button" $src={LangPicker.src} />
-          <LanguageSwitcherList>
+          <StyledLangIcon
+            as="button"
+            type="button"
+            $src={LangPicker.src}
+            onClick={handleShowLanguageMenu}
+          />
+          <LanguageSwitcherList $visible={isVisible}>
             {flags.map((flag) => (
               <li key={flag.name}>
                 <StyledLangIcon $src={flag.icon.src} />
