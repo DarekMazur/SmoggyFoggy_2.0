@@ -38,14 +38,13 @@ const LanguageMenuList = () => {
             y: 30,
             duration: 0.1,
             stagger: 0.05,
-            delay: 0.3,
           }
         )
     },
     { scope: languageRef }
   )
 
-  const handleClick = (e: MouseEvent) => {
+  const handleClickOutside = (e: MouseEvent) => {
     if (menuRef.current && !menuRef.current.contains(e.target as HTMLElement))
       if (tl.current) {
         tl.current.reverse()
@@ -54,10 +53,10 @@ const LanguageMenuList = () => {
   }
 
   useEffect(() => {
-    document.addEventListener('click', handleClick)
+    document.addEventListener('click', handleClickOutside)
 
     return () => {
-      document.removeEventListener('click', handleClick)
+      document.removeEventListener('click', handleClickOutside)
     }
   }, [])
 
