@@ -20,7 +20,6 @@ const LanguageMenuList = () => {
   const [isVisible, setIsVisible] = useState(false)
 
   const languageRef = useRef<HTMLUListElement>(null)
-  const buttonRef = useRef<HTMLButtonElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
   const tl = useRef<gsap.core.Timeline>()
 
@@ -70,7 +69,6 @@ const LanguageMenuList = () => {
   return (
     <div ref={menuRef}>
       <StyledLangIcon
-        ref={buttonRef}
         as="button"
         type="button"
         $src={LangPicker.src}
