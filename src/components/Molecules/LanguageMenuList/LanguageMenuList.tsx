@@ -23,24 +23,27 @@ const LanguageMenuList = () => {
   const menuRef = useRef<HTMLDivElement>(null)
   const tl = useRef<gsap.core.Timeline>()
 
-  const { contextSafe } = useGSAP(() => {
-    if (languageRef.current)
-      tl.current = gsap.timeline({ paused: true }).fromTo(
-        languageRef.current.children,
-        {
-          autoAlpha: 0,
-          x: 0,
-          y: 0,
-        },
-        {
-          autoAlpha: 1,
-          y: 30,
-          duration: 0.1,
-          stagger: 0.05,
-          delay: 0.3,
-        }
-      )
-  })
+  const { contextSafe } = useGSAP(
+    () => {
+      if (languageRef.current)
+        tl.current = gsap.timeline({ paused: true }).fromTo(
+          languageRef.current.children,
+          {
+            autoAlpha: 0,
+            x: 0,
+            y: 0,
+          },
+          {
+            autoAlpha: 1,
+            y: 30,
+            duration: 0.1,
+            stagger: 0.05,
+            delay: 0.3,
+          }
+        )
+    },
+    { scope: languageRef }
+  )
 
   const handleClick = (e: MouseEvent) => {
     if (menuRef.current && !menuRef.current.contains(e.target as HTMLElement))
