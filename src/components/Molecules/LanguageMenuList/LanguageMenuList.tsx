@@ -7,12 +7,13 @@ import { useState, useRef, useEffect } from 'react'
 import LangPicker from '@/assets/icons/langPicker.svg'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
+import Tooltip from '@/components/Atoms/Tooltip/Tooltip'
 
 const LanguageMenuList = () => {
   const flags = [
-    { icon: pl, name: 'polish' },
-    { icon: en, name: 'english' },
-    { icon: uk, name: 'ukrainian' },
+    { icon: pl, name: 'polish', label: 'polski' },
+    { icon: en, name: 'english', label: 'english' },
+    { icon: uk, name: 'ukrainian', label: 'Українська' },
   ]
 
   gsap.registerPlugin(useGSAP)
@@ -79,7 +80,9 @@ const LanguageMenuList = () => {
       <LanguageSwitcherList ref={languageRef}>
         {flags.map((flag) => (
           <li key={flag.name}>
-            <StyledLangIcon $src={flag.icon.src} />
+            <Tooltip direction="left" label={flag.label}>
+              <StyledLangIcon $src={flag.icon.src} />
+            </Tooltip>
           </li>
         ))}
       </LanguageSwitcherList>
