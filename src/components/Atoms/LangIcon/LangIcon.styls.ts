@@ -9,6 +9,7 @@ const StyledLangIcon = styled.div<{ $src: string }>`
   width: 3rem;
   border: 0;
   z-index: 2;
+  cursor: pointer;
 `
 
 export default StyledLangIcon
