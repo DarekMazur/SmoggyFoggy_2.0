@@ -76,7 +76,7 @@ const LanguageMenuList = () => {
         $src={LangPicker.src}
         onClick={handleToggleLanguageMenu}
       />
-      <LanguageSwitcherList ref={languageRef} $visible={isVisible}>
+      <LanguageSwitcherList ref={languageRef}>
         {flags.map((flag) => (
           <li key={flag.name}>
             <StyledLangIcon $src={flag.icon.src} />
