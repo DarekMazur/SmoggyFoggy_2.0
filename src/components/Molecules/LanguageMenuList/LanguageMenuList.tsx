@@ -72,6 +72,10 @@ const LanguageMenuList = () => {
 
   const handleLanguageSwitch = (lang: string) => {
     i18n.changeLanguage(lang)
+    if (tl.current) {
+      tl.current.reverse()
+      setIsVisible(false)
+    }
   }
 
   return (
