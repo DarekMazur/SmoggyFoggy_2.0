@@ -4,6 +4,7 @@ import { ReactNode } from 'react'
 import { ThemeProvider } from 'styled-components'
 import theme from '@/utils/lib/styles/theme'
 import GlobalStyle from '@/utils/lib/styles/GlobalStyle'
+import '@/i18n/config'
 
 const AppProviders = ({ children }: { children: ReactNode }) => (
   <ThemeProvider theme={theme}>
