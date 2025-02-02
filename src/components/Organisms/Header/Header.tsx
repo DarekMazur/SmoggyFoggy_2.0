@@ -7,8 +7,17 @@ import Title from '@/components/Atoms/Title/Title'
 import Wrapper from '@/components/Molecules/Wrapper/Wrapper'
 import StyledHeader from '@/components/Organisms/Header/Header.style'
 import LanguageMenuList from '@/components/Molecules/LanguageMenuList/LanguageMenuList'
+import { RootState, setMode } from '@/store'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Header = () => {
+  const mode = useSelector<RootState>((state) => state.mode)
+  const dispatch = useDispatch()
+
+  const handleChange = () => {
+    dispatch(setMode(mode === 'light' ? 'dark' : 'light'))
+  }
+
   return (
     <StyledHeader>
       <Wrapper
@@ -17,7 +26,7 @@ const Header = () => {
         $justifyContent="space-between"
         $m="0 2rem"
       >
-        <Image src={TempSwitcher} alt="" />
+        <Image src={TempSwitcher} alt="" onClick={handleChange} />
         <LanguageMenuList />
       </Wrapper>
       <Wrapper $display="flex" $alignItems="center">
