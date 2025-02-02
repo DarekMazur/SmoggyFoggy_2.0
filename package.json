@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@reduxjs/toolkit": "^2.5.1",
     "ajv": "^8.17.1",
     "ajv-keywords": "^5.1.0",
     "gsap": "^3.12.7",
@@ -23,6 +24,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-i18next": "^15.4.0",
+    "react-redux": "^9.2.0",
     "styled-components": "^6.1.14"
   },
   "devDependencies": {

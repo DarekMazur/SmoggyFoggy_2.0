@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle<{
     font-size: ${({ theme }) => theme.fontSize.m};
     color: ${({ theme, $isDark }) =>
       $isDark ? theme.colors.white : theme.colors.black};
-    background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+    background: ${({ $isDark }) => ($isDark ? 'linear-gradient(rgba(19, 19, 19, 0.6), rgba(19, 19, 19, 0.6))' : 'linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6))')},
     url(${background.src}) no-repeat center/cover fixed;
   }
 
