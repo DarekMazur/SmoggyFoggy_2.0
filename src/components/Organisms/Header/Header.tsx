@@ -7,8 +7,12 @@ import Title from '@/components/Atoms/Title/Title'
 import Wrapper from '@/components/Molecules/Wrapper/Wrapper'
 import StyledHeader from '@/components/Organisms/Header/Header.style'
 import LanguageMenuList from '@/components/Molecules/LanguageMenuList/LanguageMenuList'
+import { ContentContext } from '@/store/ContextProvider'
+import { useContext } from 'react'
 
 const Header = () => {
+  const { handleSetMode } = useContext(ContentContext)
+
   return (
     <StyledHeader>
       <Wrapper
@@ -17,7 +21,7 @@ const Header = () => {
         $justifyContent="space-between"
         $m="0 2rem"
       >
-        <Image src={TempSwitcher} alt="" />
+        <Image src={TempSwitcher} alt="" onClick={handleSetMode} />
         <LanguageMenuList />
       </Wrapper>
       <Wrapper $display="flex" $alignItems="center">
